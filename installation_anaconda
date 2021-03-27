@@ -1,0 +1,44 @@
+mina installation requirements.. 
+conda install pyproj
+conda install libgdal
+conda install gdal
+conda install overpy
+conda install shapely
+conda install jsmin
+conda install tqdmy
+conda install scikit-learn
+conda install multiprocess
+pip install git+https://github.com/Lydorn/kornia@7bcb52125917eedee867ec93ed56c289019bd7d2
+conda config --add channels conda-forge
+conda config --set channel_priority false
+conda  install rasterio
+conda install scikit-image
+conda install geojson
+conda install tensorboard
+conda install fiona
+pip install -U --no-cache-dir cython
+// visual studio required// pip install --no-cache-dir "git+https://github.com/cocodataset/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"
+conda install tifffile
+pip install Pillow
+
+conda install future
+conda install descartes
+conda install -c conda-forge opencv=4.5.0
+conda install -c conda-forge skan
+
+1.7.0 with cuda // 
+conda install pytorch==1.7.0 torchvision==0.8.0 torchaudio==0.7.0 cudatoolkit=11.0 -c pytorch
+
+pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" .
+
+conda install numba=0.48.0
+
+pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0+cu110.html  //requires more formation to make it work
+
+
+modify-------
+dataset_params.inria_dataset_polygonized.json
+config.defaults.inria_dataset_polygonized.json
+eval_params.inria_dataset.json
+config.defaults.json
+pytorch_lydorn/torch_lydorn/torchvision/datasets/inria_aerial.py 
