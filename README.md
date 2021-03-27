@@ -1,4 +1,4 @@
-# Polygonal Building Segmentation by Frame Field Learning
+# Polygonal Building Segmentation by Frame Field Learning Modified from LYDORN to work on anaconda and windows device without docker installation. 
 
 We add a frame field output to an image segmentation neural network to improve segmentation quality 
 and provide structural information for the subsequent polygonization step.
