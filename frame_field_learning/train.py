@@ -35,13 +35,13 @@ def train(gpu, config, shared_dict, barrier, train_ds, val_ds, backbone):
     # torch.backends.cudnn.benchmark = False
     # os.environ['CUDA_LAUNCH_BLOCKING'] = 1
     torch.autograd.set_detect_anomaly(True)
-
+    #torch.distributed.register_rendezvous_handler()
     # --- Setup DistributedDataParallel --- #
     rank = config["nr"] * config["gpus"] + gpu
     print("GPU:",rank)
     torch.distributed.init_process_group(
-        backend='nccl',
-        init_method='env://',
+        backend='gloo',
+        init_method="file:///D:/libtmp", ## see this https://pytorch.org/tutorials/intermediate/ddp_tutorial.html
         world_size=config["world_size"],
         rank=rank
     )
