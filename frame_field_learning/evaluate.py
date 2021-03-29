@@ -20,9 +20,10 @@ except ModuleNotFoundError:
 def evaluate(gpu: int, config: dict, shared_dict, barrier, eval_ds, backbone):
     # --- Setup DistributedDataParallel --- #
     rank = config["nr"] * config["gpus"] + gpu
+    print("GPU:",rank)
     torch.distributed.init_process_group(
-        backend='nccl',
-        init_method='env://',
+        backend='gloo',
+        init_method="file:///D:/libtmp", ## see this https://pytorch.org/tutorials/intermediate/ddp_tutorial.html
         world_size=config["world_size"],
         rank=rank
     )
